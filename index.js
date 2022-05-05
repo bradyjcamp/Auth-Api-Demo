@@ -1,13 +1,13 @@
 'use strict';
 
 require('dotenv').config();
-// const { db, posts } = require('./src/models');
+const { db, items } = require('./src/models');
 const { authDb, users } = require('./src/auth/models');
 const server = require('./src/server.js');
 
 
-// db.sync().then(async () => {
-  // await posts.create({
+db.sync().then(async () => {
+  // await items.create({
   //   userId: 1,
   //   subject: 'Test',
   //   content: 'We are testing',
@@ -30,4 +30,4 @@ const server = require('./src/server.js');
     // });
     server.start(process.env.PORT||3000);
   });
-// });
+});

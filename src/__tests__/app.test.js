@@ -24,11 +24,11 @@ describe('Testing the Express app', () => {
       username,
       password,
     });
-
+    console.log('response.body? ', response.body)
     expect(response.status).toBe(201);
-    expect(response.body.username).toEqual(username);
-    expect(response.body.role).toEqual('user');
-    expect(response.body.token).toBeTruthy();
+    expect(response.body.user.username).toEqual(username);
+    expect(response.body.user.role).toEqual('user');
+    expect(response.body.user.token).toBeTruthy();
   });
 
   test('Should sign in a user with basic auth credentials', async () => {
@@ -36,8 +36,8 @@ describe('Testing the Express app', () => {
     const response = await request.post('/signin').auth(username, password);
 
     expect(response.status).toBe(200);
-    expect(response.body.username).toEqual(username);
-    expect(response.body.role).toEqual('user');
-    expect(response.body.token).toBeTruthy();
+    expect(response.body.user.username).toEqual(username);
+    expect(response.body.user.role).toEqual('user');
+    expect(response.body.user.token).toBeTruthy();
   });
 });
