@@ -1,7 +1,7 @@
 'use strict';
 
-const bearerMiddleware = require('../app/middleware/bearer');
-const aclMiddleware = require('../app/middleware/acl');
+const bearerMiddleware = require('../auth/middleware/bearer');
+const aclMiddleware = require('../auth/middleware/acl');
 
 describe('Testing our auth middleware', () => {
   test('Bearer middleware can authenticated using a token on the request', () => {
