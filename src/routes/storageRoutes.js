@@ -67,11 +67,12 @@ async function handleUpdate(req, res) {
   }
 }
 
+
 async function handleDelete(req, res) {
   try{
     let id = req.params.id;
     let deletedRecord = await req.model.delete(id);
-    res.status(200).json(deletedRecord);
+    res.status(204).json(deletedRecord);
   }catch(e){
     console.error(e.message);
     return e.message;
