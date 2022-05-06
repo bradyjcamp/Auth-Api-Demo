@@ -10,7 +10,7 @@ class DataCollection {
       if (id) {
         return await this.model.findOne({ where: { id } });
       } else {
-        return await this.model.findAll();
+        return await this.model.findAll({});
       }
     } catch (e) {
       console.error(e);
@@ -25,7 +25,8 @@ class DataCollection {
   }
   async update(id, data) {
     try {
-      return await this.model.findOne({ where: { id } }).then(record => record.update(data));
+      return await this.model.findOne({ where: { id } })
+        .then(record => record.update(data));
     }
     catch (e) {
       console.error(e)
