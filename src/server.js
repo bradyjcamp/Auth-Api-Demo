@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/storage', storageRoutes)
+app.use('/api/user', storageRoutes)
 app.use(authRoutes);
 
 
